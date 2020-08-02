@@ -12,7 +12,7 @@
 <meta
 	name="author"
 	content="">
-<title>Login</title>
+<title>Hello world!</title>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
 	rel="stylesheet"
