@@ -44,6 +44,8 @@ input[type="checkbox"] {
 	<div class="container">
 		<p>The student is confirmed: ${param.firstName} ${param.lastName}</p>
 		<p>The student's country: ${param.country}</p>
+		<p>The student's favourite programming language:
+			${param.favoriteLanguage}</p>
 	</div>
 </body>
 </html>
