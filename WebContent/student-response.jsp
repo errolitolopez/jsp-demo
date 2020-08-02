@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="java.io.Console"%>
+<%@page import="java.util.logging.Logger"%>
 <html
 	lang="en"
 	xmlns="http://www.w3.org/1999/xhtml"
@@ -41,11 +43,38 @@ input[type="checkbox"] {
 </style>
 </head>
 <body>
+	<% Logger logger = Logger.getLogger(this.getClass().getName());%>
 	<div class="container">
 		<p>The student is confirmed: ${param.firstName} ${param.lastName}</p>
 		<p>The student's country: ${param.country}</p>
-		<p>The student's favourite programming language:
-			${param.favoriteLanguage}</p>
+		<p>
+			The student's favourite programming language:
+			<%
+			String[] langs = request.getParameterValues("favoriteLanguage");
+
+			if (langs.length != 0) {
+				for (int i = 0; i < langs.length; i++) {
+					if (langs.length == 1) {
+					    out.println(langs[i]);
+					} else {  
+	                    out.print(langs[i] + formatTxt(i, langs.length));	
+					}
+				}
+			}
+		%>
+		
+		<%!String formatTxt(int i, int length) {
+			if (i == (length - 2)) {
+				return " and ";
+			}
+            if (i < length - 1) {
+                return ", ";
+            }
+
+            return "";
+		}%>
+		
+		</p>
 	</div>
 </body>
 </html>
